@@ -78,3 +78,9 @@ jobs:
       working-directory: ${{ runner.workspace }}/build
       shell: bash
       run: cmake --build . --config $BUILD_TYPE
+  
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-artifacts
+        path: ${{ runner.workspace }}/build/**/*  # or replace with the exact path to your build artifacts
